@@ -1,0 +1,83 @@
+.flashcard-wrapper {
+  height: 252px;
+  width: 252px;
+  background-color: #FFFFFF;
+  border: 1px solid #ddd;
+  border-top: 3px solid #747a7e;
+  box-shadow: 0 0.4rem 1.2rem 0.2rem rgba(0,0,0,.05);
+  margin: 30px 30px 0;
+  perspective: 800px;
+  transition: 0.6s;
+	transform-style: preserve-3d;
+}
+
+.flashcard-wrapper.flipped {
+  background-color: #FAFAFA;
+  height: 280px;
+  width: 280px;
+  transform: rotateY(180deg);
+}
+
+.flashcard-wrapper .flashcard {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 1.5625;
+  word-break: break-word;
+  word-wrap: break-word;
+}
+
+.flashcard-wrapper .flashcard .front {
+  transform: rotateY(0deg);
+}
+
+.flashcard-wrapper .flashcard .back {
+  overflow-y: auto;
+  transform: rotateY(180deg);
+}
+
+.flashcard-wrapper .flashcard .front,
+.flashcard-wrapper .flashcard .back {
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+
+.flashcard span {
+  margin: auto 0;
+  padding: 0 5%;
+  text-align: center;
+  width: 90%;
+}
+
+.flashcard .back span {
+  padding: 2.3rem 2.5rem 2.5rem;
+  width: 100%
+}
+
+.flashcard .front :not(span),
+.flashcard .back :not(span) {
+  height: 100%;
+  width: 100%;
+}
+
+.flashcard span.long-text {
+  font-size: 20px;
+  text-align: left;
+}
+
+.flashcard span.long-text::after {
+  background: linear-gradient(hsla(0, 0%, 98%, 0), #fafafa 75%, #fafafa) 0 0 repeat;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  transform: translateZ(0);
+}
